@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- key屬性對應到的是在Pref.java中定義用來取得身高偏好設定的識別符號 -->
+    <!-- summary對應的是顯示在偏好設定頁面上對應欄位的說明 -->
+    <EditTextPreference android:key="BMI_HEIGHT"
+        android:title="@string/bmi_height"
+        android:summary="@string/bmi_height"/>
+
+</PreferenceScreen>

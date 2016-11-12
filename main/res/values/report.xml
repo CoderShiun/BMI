@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="report_title">BMI report</string>
+    <string name="report_back">Previous</string>
+
+</resources>

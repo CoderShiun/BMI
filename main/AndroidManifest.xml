@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?><!-- installLocation(是否能被安裝到SD卡上 -->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.shiun.bmi"
+    android:installLocation="preferExternal"
+    android:versionCode="1"
+    android:versionName="1.0.0">
+    <!-- for 平板 -->
+    <uses-sdk
+        android:minSdkVersion="11"
+        android:targetSdkVersion="17" />
+
+    <!-- 宣告支援各種解析度的幾種,如此便能顯示在大部分的Market中 -->
+    <supports-screens
+        android:anyDensity="true"
+        android:largeScreens="true"
+        android:normalScreens="true"
+        android:smallScreens="true"
+        android:xlargeScreens="true" />
+
+    <android:uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <android:uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <android:uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <!-- 顯示在Activity畫面上方的名稱;以及指定螢幕方向爲直式 -->
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait">
+
+            <!-- intent_filter定義的是這個activity被啓動的條件 -->
+            <intent-filter>
+
+                <!-- MAIN表示開啓時應先執行這個Activity列表 -->
+                <action android:name="android.intent.action.MAIN" />
+                <!-- LAUNCHER表示這個Activity會顯示在Launcher(預設桌面)的應用程式列表 -->
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <!-- exported = 是否允許別的application也可以呼叫此 Activity -->
+        <!-- 也可以加入usepermission屬性來要求在其他應用程式中使用時需加入對應的要求權限宣告 -->
+        <activity
+            android:name=".ReportActivity"
+            android:exported="true"
+            android:label="@string/report_title">
+            <intent-filter>
+
+                <!-- 我們自行定義一個 bmi.action.report 的動作 -->
+                <action android:name="bmi.action.report" />
+                <!-- 在加入動作時必須提供一個預設分類 -->
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <!-- 要開啓新的Activity,也必須加入對應Pref這個Activity的宣告 -->
+        <activity android:name=".Pref" />
+
+        <!-- 要開啓新的Activity,也必須加入對應HistoryActivity這個Activity的宣告 -->
+        <activity android:name=".HistoryActivity"></activity><!-- ATTENTION: This was auto-generated to add Google Play services to your project for
+     App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information. -->
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+    </application>
+
+</manifest>
